@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Affinity",
-  description: "Code-chalenger",
+  description: "Code-challenger",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="pt-PT">
       <body
-        className={`antialiased bg-zinc-950 
+        className={`antialiased bg-zinc-950 w-full
         ${inter.className}`}
       >
         <Navbar />

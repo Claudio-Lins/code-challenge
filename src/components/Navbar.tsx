@@ -88,7 +88,12 @@ export function Navbar() {
           <div className="ml-8">
             <select
               onChange={(e) => selectLang(e.target.value)}
-              className="bg-transparent font-bold text-white focus:bg-transparent focus:outline-none"
+              className="focus:border-none outline-none focus:bg-[#09090b] "
+              style={{
+                backgroundColor: "#09090b",
+                color: "#fff",
+                border: "none",
+              }}
             >
               <option className="" value="portuguese">
                 PT
