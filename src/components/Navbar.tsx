@@ -43,7 +43,7 @@ export function Navbar() {
       setIsMenuOpen(false);
     } else {
       setIsMenuOpen(false);
-      await new Promise((resolve) => setTimeout(resolve, 500))
+      await new Promise((resolve) => setTimeout(resolve, 500));
       setIndexMenu(index);
       setIsMenuOpen(true);
     }
@@ -72,10 +72,10 @@ export function Navbar() {
           {lang.pageProps.navigation.map((navLink: NavigationTypes, index) => (
             <div
               className={`
-                cursor-pointer navLink
+                cursor-pointer navLink  font-bold hover:text-cyan-400
                 ${
                   indexMenu === index && isMenuOpen
-                    ? "text-cyan-400 font-bold"
+                    ? "text-cyan-400"
                     : "text-white"
                 }  
               `}
@@ -85,14 +85,22 @@ export function Navbar() {
               <span className="uppercase">{navLink.title}</span>
             </div>
           ))}
-          <select
-            onChange={(e) => selectLang(e.target.value)}
-            className="bg-transparent border-none text-white"
-          >
-            <option value="portuguese">PT</option>
-            <option value="english">EN</option>
-            <option value="spanish">ES</option>
-          </select>
+          <div className="ml-8">
+            <select
+              onChange={(e) => selectLang(e.target.value)}
+              className="bg-transparent font-bold text-white focus:bg-transparent focus:outline-none"
+            >
+              <option className="" value="portuguese">
+                PT
+              </option>
+              <option className="" value="english">
+                EN
+              </option>
+              <option className="" value="spanish">
+                ES
+              </option>
+            </select>
+          </div>
         </div>
       </div>
       <div
@@ -106,7 +114,7 @@ export function Navbar() {
             {lang.pageProps.navigation[indexMenu]?.title}
           </h2>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            <X size={24}/>
+            <X size={24} />
           </button>
         </div>
         <hr className="border-zinc-950 mt-2 mb-6" />
