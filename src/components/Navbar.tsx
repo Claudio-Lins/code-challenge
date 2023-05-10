@@ -72,7 +72,7 @@ export function Navbar() {
           {lang.pageProps.navigation.map((navLink: NavigationTypes, index) => (
             <div
               className={`
-                cursor-pointer
+                cursor-pointer navLink
                 ${
                   indexMenu === index && isMenuOpen
                     ? "text-cyan-400 font-bold"
