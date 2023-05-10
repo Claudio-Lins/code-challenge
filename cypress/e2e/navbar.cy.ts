@@ -14,8 +14,7 @@ describe("navbar", () => {
   });
   it("should open and close sidebar menu", () => {
     cy.visit("/");
-    cy.get("div").eq(0).click();
-    cy.get("div").eq(1).click();
-    cy.get("button").click();
+    cy.get(".navLink").first().click;
+    cy.get("button").click
   });
 });
