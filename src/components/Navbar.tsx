@@ -97,7 +97,7 @@ export function Navbar() {
       </div>
       <div
         className={`
-        absolute  rounded-l-md text-zinc-950 w-full max-w-sm h-auto p-8 bg-cyan-400 transition-all duration-500
+        absolute rounded-l-md text-zinc-950 w-full max-w-sm h-auto p-8 bg-cyan-400 transition-all duration-500
         ${isMenuOpen ? "right-0" : "-right-full"}
         `}
       >
