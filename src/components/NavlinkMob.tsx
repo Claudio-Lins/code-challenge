@@ -1,6 +1,6 @@
 "use client";
+import React, { useState } from "react";
 import Image from "next/image";
-import React, {  useState } from "react";
 import english from "@/data/en.json";
 import spanish from "@/data/es.json";
 import portuguese from "@/data/pt.json";
@@ -11,12 +11,13 @@ interface NavigationTypes {
   title: string;
 }
 
+
 interface ItemTypes {
   id: number;
   title: string;
 }
 
-export function Navbar() {
+export function NavlinkMob() {
   const [lang, setLang] = useState(portuguese);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [indexMenu, setIndexMenu] = useState(0);
@@ -50,28 +51,41 @@ export function Navbar() {
   };
 
   return (
-    <div className="mb-8 relative hidden md:block">
-      <div className="flex w-full px-4 items-center justify-between container mx-auto py-4 ">
+    <div className="flex w-full flex-col p-4 relative">
+      <div className="flex justify-between items-center">
+        <Image
+          src="/lgs/affinity_symbol_branco.png"
+          alt="Affinity"
+          width={75}
+          height={45}
+          className="md:hidden"
+        />
         <div className="">
-          <Image
-            src="/lgs/affinity_branco.png"
-            alt="Affinity"
-            width={200}
-            height={100}
-            className="hidden md:flex -ml-4"
-          />
-          <Image
-            src="/lgs/affinity_symbol_branco.png"
-            alt="Affinity"
-            width={75}
-            height={45}
-            className="md:hidden"
-          />
+          <select
+            onChange={(e) => selectLang(e.target.value)}
+            className="focus:border-none outline-none focus:bg-[#09090b] "
+            style={{
+              backgroundColor: "#09090b",
+              color: "#fff",
+              border: "none",
+            }}
+          >
+            <option className="" value="portuguese">
+              PT
+            </option>
+            <option className="" value="english">
+              EN
+            </option>
+            <option className="" value="spanish">
+              ES
+            </option>
+          </select>
         </div>
-        <div className=" md:flex md:flex-row flex-col items-center gap-4">
-          {lang.pageProps.navigation.map((navLink: NavigationTypes, index) => (
-            <div
-              className={`
+      </div>
+      <div className="md:hidden flex justify-start mt-20 h-screen flex-col pl-4 gap-12">
+        {lang.pageProps.navigation.map((navLink: NavigationTypes, index) => (
+          <div
+            className={`
                 cursor-pointer navLink  font-bold hover:text-cyan-400
                 ${
                   indexMenu === index && isMenuOpen
@@ -79,38 +93,15 @@ export function Navbar() {
                     : "text-white"
                 }  
               `}
-              onClick={() => handleToggleLang(index)}
-              key={navLink.id}
-            >
-              <span className="uppercase">{navLink.title}</span>
-            </div>
-          ))}
-          <div className="ml-8">
-            <select
-              onChange={(e) => selectLang(e.target.value)}
-              className="focus:border-none outline-none focus:bg-[#09090b] "
-              style={{
-                backgroundColor: "#09090b",
-                color: "#fff",
-                border: "none",
-              }}
-            >
-              <option className="" value="portuguese">
-                PT
-              </option>
-              <option className="" value="english">
-                EN
-              </option>
-              <option className="" value="spanish">
-                ES
-              </option>
-            </select>
+            onClick={() => handleToggleLang(index)}
+            key={navLink.id}
+          >
+            <span className="uppercase">{navLink.title}</span>
           </div>
-        </div>
-      </div>
-      <div
+        ))}
+        <div
         className={`
-        absolute rounded-l-md text-zinc-950 w-full max-w-sm h-auto p-8 bg-cyan-400 transition-all duration-500
+        absolute rounded-l-md text-zinc-950 w-full h-screen p-8 bg-cyan-400 transition-all duration-500
         ${isMenuOpen ? "right-0" : "-right-full"}
         `}
       >
@@ -128,6 +119,7 @@ export function Navbar() {
             <strong className="text-lg">{items.title}</strong>
           </div>
         ))}
+      </div>
       </div>
     </div>
   );
