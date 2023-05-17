@@ -60,13 +60,6 @@ export function Navbar() {
             height={100}
             className="hidden md:flex -ml-4"
           />
-          <Image
-            src="/lgs/affinity_symbol_branco.png"
-            alt="Affinity"
-            width={75}
-            height={45}
-            className="md:hidden"
-          />
         </div>
         <div className=" md:flex md:flex-row flex-col items-center gap-4">
           {lang.pageProps.navigation.map((navLink: NavigationTypes, index) => (

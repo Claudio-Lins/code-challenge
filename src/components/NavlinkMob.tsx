@@ -60,7 +60,7 @@ export function NavlinkMob() {
           height={45}
           className="md:hidden"
         />
-        <div className="">
+        <div className="sm:hidden">
           <select
             onChange={(e) => selectLang(e.target.value)}
             className="focus:border-none outline-none focus:bg-[#09090b] "
