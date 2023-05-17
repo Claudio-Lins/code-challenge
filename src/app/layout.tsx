@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="pt-PT">
       <body
-        className={`antialiased bg-zinc-950 w-full
+        className={`antialiased bg-zinc-950
         ${inter.className}`}
       >
         <Navbar />
